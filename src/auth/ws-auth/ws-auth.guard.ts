@@ -14,8 +14,8 @@ export class WsAuthGuard implements CanActivate {
     const client: Socket = context.switchToWs().getClient<Socket>()
     const payload = WsAuthGuard.validateToken(client)
     console.log('payload')
-    console.log(payload)
-    client['user'] = payload
+    // console.log(client)
+    client.data.user = payload
     return true
   }
 
